@@ -12,6 +12,9 @@ import { lifecycle } from "recompose";
 const App = () => (
   <Root repository={repository}>
     <>
+      <p>
+        <a href="https://github.com/takamoriaiko/bingo-react">GitHub</a>
+      </p>
       <Controls />
       <section>
         <h2>今の</h2>
