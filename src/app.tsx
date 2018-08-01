@@ -1,13 +1,15 @@
-import React, { Fragment } from "react";
+import React from "react";
 import Root from "./components/root";
 import Controls from "./components/controls";
 import Upcard from "./components/upcard";
 import History from "./components/history";
 import Stock from "./components/stock";
 import SortedHistory from "./components/sorted-history";
+import repository from "./repository/local-repository";
+import { lifecycle } from "recompose";
 
 const App = () => (
-  <Root>
+  <Root repository={repository}>
     <>
       <Controls />
       <section>
@@ -29,4 +31,11 @@ const App = () => (
     </>
   </Root>
 );
-export default App;
+
+const enhance = lifecycle({
+  componentDidMount() {
+    repository.load();
+  }
+});
+
+export default enhance(App);

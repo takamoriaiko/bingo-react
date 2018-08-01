@@ -20,10 +20,14 @@ const Controls = ({ shuffle, next }: Props) => (
   </div>
 );
 
+/*
 const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({
-  shuffle: () => shuffle(dispatch),
-  next: () => dispatch(next())
+  shuffle: () => shuffle(),
+  next: () => next()
 });
+*/
+
+const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({ shuffle, next });
 
 export default connect(
   null,

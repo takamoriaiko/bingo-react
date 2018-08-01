@@ -1,11 +1,16 @@
 import React from "react";
 import { ReactElement } from "react";
-import { createStore } from "../../node_modules/redux";
-import rootReducer from "../reducer";
+import createStore from "../store";
 import { Provider } from "react-redux";
+import Repository from "../repository/repository";
 
-const Root = ({ children }: { children: ReactElement<any> }) => {
-  const store = createStore(rootReducer);
+interface Props {
+  repository: Repository;
+  children: ReactElement<any>;
+}
+
+const Root = ({ repository, children }: Props) => {
+  const store = createStore(repository);
   (window as any).store = store;
   return <Provider store={store}>{children}</Provider>;
 };

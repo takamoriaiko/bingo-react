@@ -1,29 +1,14 @@
 import { State } from "./reducer";
 import { createSelector } from "reselect";
 
-const cardsSelector = (state: State) => state.cards;
-const indexSelector = (state: State) => state.index;
-
 // これまでに引いたカード
-export const historySelector = createSelector(
-  cardsSelector,
-  indexSelector,
-  (cards, index) => cards.slice(0, index + 1)
-);
+export const historySelector = (state: State) => state.history;
 
 // 現在のカード
-export const upcardSelector = createSelector(
-  cardsSelector,
-  indexSelector,
-  (cards, index) => cards[index]
-);
+export const upcardSelector = (state: State) => state.card;
 
 // 残りのカード
-export const stockSelector = createSelector(
-  cardsSelector,
-  indexSelector,
-  (cards, index) => cards.slice(index + 1)
-);
+export const stockSelector = (state: State) => state.stock;
 
 // これまでに引いたカードを番号順に
 export const sortedHistorySelector = createSelector(historySelector, cards =>
