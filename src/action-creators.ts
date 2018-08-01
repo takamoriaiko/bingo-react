@@ -4,7 +4,7 @@ import repository from "./repository/firebase-repository";
 
 // くばる
 export const shuffle = async () => {
-  const response = await fetch("/assets/aiko.json");
+  const response = await fetch("./assets/aiko.json");
   const cards: Card[] = await response.json();
   repository.shuffle(cards);
 };
