@@ -5,7 +5,8 @@ import Upcard from "./components/upcard";
 import History from "./components/history";
 import Stock from "./components/stock";
 import SortedHistory from "./components/sorted-history";
-import repository from "./repository/local-repository";
+//import repository from "./repository/local-repository";
+import repository from "./repository/firebase-repository";
 import { lifecycle } from "recompose";
 
 const App = () => (

@@ -26,10 +26,7 @@ const localStorageRepository = {
   },
 
   cards(): Card[] {
-    // return JSON.parse(localStorage.cards || "[]");
-    const cards = JSON.parse(localStorage.cards || "[]");
-    console.log("cards", cards);
-    return cards;
+    return JSON.parse(localStorage.cards || "[]");
   },
 
   index(): number {

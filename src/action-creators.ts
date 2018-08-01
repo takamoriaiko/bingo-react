@@ -1,5 +1,6 @@
 import { Card } from "./types";
-import repository from "./repository/local-repository";
+// import repository from "./repository/local-repository";
+import repository from "./repository/firebase-repository";
 
 // くばる
 export const shuffle = async () => {

@@ -8,7 +8,6 @@ const store = (repository: Repository) => {
 
   // 保存されたデータが変更されたらストアに伝える
   repository.on("historychanged", cards => {
-    console.log("history かわり", cards);
     dispatch({ type: "history/set", payload: cards });
   });
 
