@@ -1,0 +1,6 @@
+/credentials.json
+/.env
+/node_modules
+/src/**/*.js
+/yarn-error.log
+/dist

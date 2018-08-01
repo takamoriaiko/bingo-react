@@ -1,0 +1,65 @@
+{
+  "name": "fbbingo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "eslint": "eslint --ext=ts .",
+    "start": "webpack-serve --config=./webpack.config.js --mode=development",
+    "test": "jest",
+    "tsc": "tsc",
+    "webpack": "webpack --mode=development"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "ts",
+      "tsx"
+    ],
+    "testMatch": [
+      "**/__tests__/**/*.ts?(x)",
+      "**/__tests__/**/*.js?(x)"
+    ],
+    "transform": {
+      "^.+\\.[jt]sx?$": "babel-jest"
+    }
+  },
+  "dependencies": {
+    "firebase": "^5.3.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-redux": "^5.0.7",
+    "recompose": "^0.28.0",
+    "redux": "^4.0.0",
+    "reselect": "^3.0.1",
+    "styled-components": "^3.3.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.55",
+    "@babel/plugin-transform-modules-commonjs": "^7.0.0-beta.55",
+    "@babel/preset-react": "^7.0.0-beta.55",
+    "@babel/preset-typescript": "^7.0.0-beta.55",
+    "@types/firebase": "^3.2.1",
+    "@types/react": "^16.4.7",
+    "@types/react-dom": "^16.0.6",
+    "@types/react-redux": "^6.0.5",
+    "@types/recompose": "^0.26.3",
+    "@types/redux": "^3.6.0",
+    "babel-jest": "^23.4.2",
+    "babel-loader": "^8.0.0-beta",
+    "babel-preset-power-assert": "^3.0.0-beta",
+    "connect-history-api-fallback": "^1.5.0",
+    "eslint": "^5.2.0",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-react": "^7.10.0",
+    "jest": "^23.4.2",
+    "koa-connect": "^2.0.1",
+    "prettier": "^1.14.0",
+    "typescript": "^2.9.2",
+    "typescript-eslint-parser": "^17.0.1",
+    "webpack": "^4.16.3",
+    "webpack-cli": "^3.1.0",
+    "webpack-serve": "^2.0.2"
+  }
+}
