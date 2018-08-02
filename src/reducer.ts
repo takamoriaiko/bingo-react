@@ -31,8 +31,8 @@ const stock = (state: Card[] = [], action: StockAction) => {
   }
 };
 
-type RouteAction = { type: "route/navigate"; payload: Route };
-const route = (state: Route = "index", action: RouteAction) => {
+type RouteAction = { type: "route/navigate"; payload: Route | string };
+const route = (state: Route | string = "index", action: RouteAction) => {
   switch (action.type) {
     case "route/navigate":
       return action.payload;

@@ -2,6 +2,7 @@ import { createStore, Dispatch } from "redux";
 import rootReducer, { Action } from "./reducer";
 import Repository from "./repository/repository";
 import firebaseApp from "./firebase-app";
+import history from "./history";
 
 const store = (repository: Repository) => {
   const store = createStore(rootReducer);
@@ -20,6 +21,7 @@ const store = (repository: Repository) => {
     dispatch({ type: "stock/set", payload: cards });
   });
 
+  // firebase auth のログイン状態
   firebaseApp()
     .auth()
     .onAuthStateChanged(user => {
@@ -29,6 +31,8 @@ const store = (repository: Repository) => {
         dispatch({ type: "user/logout" });
       }
     });
+
+  history(dispatch);
 
   return store;
 };
