@@ -1,4 +1,4 @@
-import { Card } from "./types";
+import { Card, Route } from "./types";
 import { combineReducers } from "../node_modules/redux";
 
 type HistoryAction = { type: "history/set"; payload: Card[] };
@@ -31,8 +31,18 @@ const stock = (state: Card[] = [], action: StockAction) => {
   }
 };
 
-export type Action = HistoryAction | CardAction | StockAction;
+type RouteAction = { type: "route/navigate"; payload: Route };
+const route = (state: Route = "index", action: RouteAction) => {
+  switch (action.type) {
+    case "route/navigate":
+      return action.payload;
+    default:
+      return state;
+  }
+};
 
-const rootReducer = combineReducers({ history, card, stock });
+export type Action = HistoryAction | CardAction | StockAction | RouteAction;
+
+const rootReducer = combineReducers({ history, card, stock, route });
 export default rootReducer;
 export type State = ReturnType<typeof rootReducer>;

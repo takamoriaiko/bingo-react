@@ -3,3 +3,5 @@ export interface Card {
   name: string;
   image_url: string;
 }
+
+export type Route = "index" | "admin" | "play" | "screen";
