@@ -1,6 +1,4 @@
 import React from "react";
-import { Dispatch } from "redux";
-import { Action } from "../reducer";
 import { shuffle, next } from "../action-creators";
 import { connect } from "react-redux";
 
@@ -20,14 +18,7 @@ const Controls = ({ shuffle, next }: Props) => (
   </div>
 );
 
-/*
-const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({
-  shuffle: () => shuffle(),
-  next: () => next()
-});
-*/
-
-const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({ shuffle, next });
+const mapDispatchToProps = () => ({ shuffle, next });
 
 export default connect(
   null,
