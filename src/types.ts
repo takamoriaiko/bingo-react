@@ -5,3 +5,9 @@ export interface Card {
 }
 
 export type Route = "index" | "admin" | "play" | "screen";
+
+export interface User {
+  displayName: string | null;
+  uid: string;
+  isAnonymous?: boolean;
+}

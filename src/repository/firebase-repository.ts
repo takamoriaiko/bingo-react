@@ -3,18 +3,7 @@ import EventEmitter from "eventemitter3";
 import { Card } from "../types";
 import shuffled from "../shuffled";
 import Repository from "./repository";
-
-const app = () => {
-  const config = {
-    apiKey: "AIzaSyC3l2TGLPC_iyOCNuDN-qZBCxzv5FaT8qE",
-    authDomain: "bingo-24372.firebaseapp.com",
-    databaseURL: "https://bingo-24372.firebaseio.com",
-    projectId: "bingo-24372",
-    storageBucket: "bingo-24372.appspot.com",
-    messagingSenderId: "262294683137"
-  };
-  return firebase.initializeApp(config);
-};
+import firebaseApp from "../firebase-app";
 
 export class FirebaseRepository implements Repository {
   emitter: EventEmitter;
@@ -29,12 +18,11 @@ export class FirebaseRepository implements Repository {
     this.cards = [];
     this.index = -1;
 
-    const db = app().database();
+    const db = firebaseApp().database();
     this.cardsRef = db.ref("cards");
     this.indexRef = db.ref("index");
 
     this.cardsRef.on("value", snapshot => {
-      console.log("cards value");
       this.cards = snapshot!.val();
       this.emitAll();
     });

@@ -1,5 +1,5 @@
-import { Card, Route } from "./types";
-import { combineReducers } from "../node_modules/redux";
+import { Card, Route, User } from "./types";
+import { combineReducers } from "redux";
 
 type HistoryAction = { type: "history/set"; payload: Card[] };
 const history = (state: Card[] = [], action: HistoryAction) => {
@@ -41,8 +41,28 @@ const route = (state: Route = "index", action: RouteAction) => {
   }
 };
 
-export type Action = HistoryAction | CardAction | StockAction | RouteAction;
+const guest: User = { uid: "0", displayName: "ログインしていない" };
+type UserAction =
+  | { type: "user/login"; payload: User }
+  | { type: "user/logout" };
+const user = (state: User = guest, action: UserAction) => {
+  switch (action.type) {
+    case "user/login":
+      return action.payload;
+    case "user/logout":
+      return guest;
+    default:
+      return state;
+  }
+};
 
-const rootReducer = combineReducers({ history, card, stock, route });
+export type Action =
+  | HistoryAction
+  | CardAction
+  | StockAction
+  | RouteAction
+  | UserAction;
+
+const rootReducer = combineReducers({ history, card, stock, route, user });
 export default rootReducer;
 export type State = ReturnType<typeof rootReducer>;

@@ -1,0 +1,12 @@
+{
+  "rules": {
+    "cards": {
+      ".read": true,
+      ".write": "auth.token.email=='furugomu@gmail.com'"
+    },
+    "index": {
+      ".read": true,
+      ".write": "auth.token.email=='furugomu@gmail.com'"
+    }
+  }
+}

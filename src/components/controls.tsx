@@ -1,6 +1,6 @@
 import React from "react";
 import { shuffle, next } from "../action-creators";
-import { connect } from "react-redux";
+import { withProps } from "recompose";
 
 interface Props {
   shuffle(): void;
@@ -18,9 +18,4 @@ const Controls = ({ shuffle, next }: Props) => (
   </div>
 );
 
-const mapDispatchToProps = () => ({ shuffle, next });
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(Controls);
+export default withProps({ shuffle, next })(Controls);

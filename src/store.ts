@@ -1,6 +1,7 @@
 import { createStore, Dispatch } from "redux";
 import rootReducer, { Action } from "./reducer";
 import Repository from "./repository/repository";
+import firebaseApp from "./firebase-app";
 
 const store = (repository: Repository) => {
   const store = createStore(rootReducer);
@@ -18,6 +19,16 @@ const store = (repository: Repository) => {
   repository.on("stockchanged", cards => {
     dispatch({ type: "stock/set", payload: cards });
   });
+
+  firebaseApp()
+    .auth()
+    .onAuthStateChanged(user => {
+      if (user) {
+        dispatch({ type: "user/login", payload: user });
+      } else {
+        dispatch({ type: "user/logout" });
+      }
+    });
 
   return store;
 };
