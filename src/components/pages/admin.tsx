@@ -1,6 +1,6 @@
 import React from "react";
 
-import Link from "../link";
+import Link from "../atoms/link";
 import Controls from "../controls";
 import Upcard from "../upcard";
 import History from "../history";

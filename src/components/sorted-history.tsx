@@ -7,7 +7,7 @@ import { sortedHistorySelector } from "../selectors";
 interface Props {
   cards: Card[];
 }
-const SortedStock = ({ cards }: Props) => (
+const SortedHistory = ({ cards }: Props) => (
   <ul>
     {cards.map(card => (
       <li key={card.id}>
@@ -21,4 +21,4 @@ const mapStateToProps = (state: State) => ({
   cards: sortedHistorySelector(state)
 });
 
-export default connect(mapStateToProps)(SortedStock);
+export default connect(mapStateToProps)(SortedHistory);

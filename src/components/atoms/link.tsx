@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { Route } from "../types";
+import { Route } from "../../types";
 
 interface Props {
   to: Route;

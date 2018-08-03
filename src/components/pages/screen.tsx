@@ -1,24 +1,50 @@
 import React from "react";
+import styled from "styled-components";
+import { Card } from "../../types";
+import CardNumber from "../atoms/card-number";
+import { gap } from "../cssvars";
+import CardComponent from "../molecules/card";
+import { upcardSelector, historySelector } from "../../selectors";
+import { State } from "../../reducer";
+import { connect } from "react-redux";
 
-import Upcard from "../upcard";
-import History from "../history";
-import SortedHistory from "../sorted-history";
-
-const Screen = () => (
-  <section>
-    <section>
-      <h2>今の</h2>
-      <Upcard />
-    </section>
-    <section>
-      <h2>りれき (番号順)</h2>
-      <SortedHistory />
-    </section>
-    <section>
-      <h2>りれき (出た順)</h2>
-      <History />
-    </section>
-  </section>
+interface Props {
+  history: Card[];
+  card: Card | null;
+}
+export const Screen = ({ history, card }: Props) => (
+  <Container>
+    <CardBlock>{card ? <CardComponent {...card} /> : null}</CardBlock>
+    <NumberList>
+      {history.map(c => (
+        <>
+          <CardNumber card={c} key={c.id} current={c === card} />{" "}
+        </>
+      ))}
+    </NumberList>
+  </Container>
 );
 
-export default Screen;
+const Container = styled.div`
+  margin: 0 -${gap};
+  display: flex;
+`;
+
+const CardBlock = styled.div`
+  flex: 2;
+  margin: 0 ${gap};
+`;
+
+const NumberList = styled.div`
+  flex: 1;
+  margin: 0 ${gap}
+  line-height: 4rem;
+`;
+
+const mapStateToProps = (state: State) => ({
+  card: upcardSelector(state),
+  history: historySelector(state)
+});
+
+const ScreenContainer = connect(mapStateToProps)(Screen);
+export default ScreenContainer;
