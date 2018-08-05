@@ -1,4 +1,5 @@
-import firebase from "firebase";
+import firebase from "firebase/app";
+import "firebase/database";
 import EventEmitter from "eventemitter3";
 import { Card } from "../types";
 import shuffled from "../shuffled";

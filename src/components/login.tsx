@@ -1,6 +1,7 @@
 import React from "react";
 import firebaseApp from "../firebase-app";
-import firebase from "firebase";
+import firebase from "firebase/app";
+import "firebase/auth";
 import { withProps } from "recompose";
 
 interface Props {

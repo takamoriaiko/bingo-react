@@ -1,4 +1,4 @@
-import firebase from "firebase";
+import firebase from "firebase/app";
 let app: firebase.app.App | null = null;
 
 const firebaseApp = () => {

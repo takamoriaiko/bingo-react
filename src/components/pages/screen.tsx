@@ -17,9 +17,9 @@ export const Screen = ({ history, card }: Props) => (
     <CardBlock>{card ? <CardComponent {...card} /> : null}</CardBlock>
     <NumberList>
       {history.map(c => (
-        <>
-          <CardNumber card={c} key={c.id} current={c === card} />{" "}
-        </>
+        <span key={c.id}>
+          <CardNumber card={c} current={c === card} />{" "}
+        </span>
       ))}
     </NumberList>
   </Container>
