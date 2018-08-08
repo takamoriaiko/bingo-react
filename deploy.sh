@@ -6,8 +6,6 @@ set -ex
 
 npm run build
 cp -av index.html assets dist
-# TODO favicon も assets に置こう
-cp -a favicon.ico dist
 cd dist
 git add -A
 git commit -m "$(date)"

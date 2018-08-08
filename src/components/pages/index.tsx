@@ -3,7 +3,7 @@ import Link from "../atoms/link";
 
 const Index = () => (
   <section>
-    <h1>こんにちは</h1>
+    <h1>𝔹𝕚𝕟𝕘𝕠</h1>
     <p>
       <Link to="play">あそぶ</Link>
     </p>
@@ -13,6 +13,7 @@ const Index = () => (
     <p>
       <Link to="screen">screen</Link>
     </p>
+
     <hr />
     <p>
       <a href="https://github.com/takamoriaiko/bingo-react">GitHub</a>

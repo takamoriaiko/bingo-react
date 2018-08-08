@@ -4,7 +4,7 @@ const convert = require("koa-connect");
 
 module.exports = {
   mode: "development",
-  entry: "./src/index",
+  entry: "./src/main",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js"
