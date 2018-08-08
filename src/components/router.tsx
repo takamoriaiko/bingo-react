@@ -8,7 +8,7 @@ import Admin from "./pages/admin";
 import Screen from "./pages/screen";
 import Play from "./pages/play";
 
-const Router = ({ route }: { route: Route }) => {
+const Router = ({ route }: { route: Route | string }) => {
   console.log("route", route);
   switch (route) {
     case "index":

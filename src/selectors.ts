@@ -14,3 +14,5 @@ export const stockSelector = (state: State) => state.stock;
 export const sortedHistorySelector = createSelector(historySelector, cards =>
   [...cards].sort((a, b) => a.id - b.id)
 );
+
+export const userSelector = (state: State) => state.user;

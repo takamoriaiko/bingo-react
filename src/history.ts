@@ -3,7 +3,7 @@ import { Action } from "./reducer";
 
 const start = (dispatch: Dispatch<Action>) => {
   const navigate = (hash: string) => {
-    const path = location.hash.replace(/^#\/?/, "") || "index";
+    const path = hash.replace(/^#\/?/, "") || "index";
     dispatch({ type: "route/navigate", payload: path });
   };
   window.addEventListener("popstate", () => navigate(location.hash));

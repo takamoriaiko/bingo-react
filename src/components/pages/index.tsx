@@ -1,7 +1,5 @@
 import React from "react";
 import Link from "../atoms/link";
-import Login from "../login";
-import CurrentUser from "../current-user";
 
 const Index = () => (
   <section>
@@ -15,8 +13,6 @@ const Index = () => (
     <p>
       <Link to="screen">screen</Link>
     </p>
-    <CurrentUser />
-    <Login />
     <hr />
     <p>
       <a href="https://github.com/takamoriaiko/bingo-react">GitHub</a>

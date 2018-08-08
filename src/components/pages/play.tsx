@@ -1,29 +1,50 @@
 import React from "react";
 
-import Upcard from "../upcard";
-import History from "../history";
-import SortedHistory from "../sorted-history";
+import { Card } from "../../types";
+import CardThumbnail from "../molecules/card-thumbnail";
+import CardList from "../molecules/card-list";
+import { connect } from "react-redux";
+import {
+  upcardSelector,
+  sortedHistorySelector,
+  historySelector
+} from "../../selectors";
+import { State } from "../../reducer";
 
-const Play = () => (
+interface Props {
+  upcard: Card | null;
+  sortedHistory: Card[];
+  history: Card[];
+}
+const Play = ({ upcard, sortedHistory, history }: Props) => (
   <section>
     <section>
       <h2>あそびかた</h2>
       <p>手元の紙に 5 x 5 のマスを書いてね。</p>
       <p>まんなかはフリーだよ。</p>
+      <p>
+        たて、よこ、ななめのどれか1列そろったら手をあげて「ビンゴ！」とさけんでね。
+      </p>
     </section>
     <section>
       <h2>今の</h2>
-      <Upcard />
+      <CardThumbnail card={upcard} />
     </section>
     <section>
       <h2>りれき (番号順)</h2>
-      <SortedHistory />
+      <CardList cards={sortedHistory} />
     </section>
     <section>
       <h2>りれき (出た順)</h2>
-      <History />
+      <CardList cards={history} />
     </section>
   </section>
 );
 
-export default Play;
+const PlayContainer = connect((state: State) => ({
+  upcard: upcardSelector(state),
+  sortedHistory: sortedHistorySelector(state),
+  history: historySelector(state)
+}))(Play);
+
+export default PlayContainer;
