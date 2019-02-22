@@ -1,3 +1,4 @@
+// TODO: これはもういらない
 import { createStore, Dispatch } from "redux";
 import rootReducer, { Action } from "./reducer";
 import Repository from "./repository/repository";

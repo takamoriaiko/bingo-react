@@ -1,6 +1,7 @@
 import { Card, Route, User } from "./types";
-import { combineReducers } from "redux";
+import { combineReducers, Reducer } from "redux";
 
+// 履歴
 type HistoryAction = { type: "history/set"; payload: Card[] };
 const history = (state: Card[] = [], action: HistoryAction) => {
   switch (action.type) {
@@ -11,6 +12,7 @@ const history = (state: Card[] = [], action: HistoryAction) => {
   }
 };
 
+// 現在の
 type CardAction = { type: "card/set"; payload?: Card };
 const card = (state: Card | null = null, action: CardAction) => {
   switch (action.type) {
@@ -21,6 +23,7 @@ const card = (state: Card | null = null, action: CardAction) => {
   }
 };
 
+// のこり
 type StockAction = { type: "stock/set"; payload: Card[] };
 const stock = (state: Card[] = [], action: StockAction) => {
   switch (action.type) {
@@ -31,6 +34,7 @@ const stock = (state: Card[] = [], action: StockAction) => {
   }
 };
 
+// ルート
 type RouteAction = { type: "route/navigate"; payload: Route | string };
 const route = (state: Route | string = "index", action: RouteAction) => {
   switch (action.type) {
@@ -41,6 +45,7 @@ const route = (state: Route | string = "index", action: RouteAction) => {
   }
 };
 
+// ログイン者
 const guest: User = { uid: "0", displayName: "ログインしていない" };
 type UserAction =
   | { type: "user/login"; payload: User }
@@ -64,5 +69,5 @@ export type Action =
   | UserAction;
 
 const rootReducer = combineReducers({ history, card, stock, route, user });
-export default rootReducer;
 export type State = ReturnType<typeof rootReducer>;
+export default rootReducer as Reducer<State, Action>;

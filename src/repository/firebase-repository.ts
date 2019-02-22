@@ -1,3 +1,4 @@
+// TODO: shuffle と next 以外いらない
 import firebase from "firebase/app";
 import "firebase/database";
 import EventEmitter from "eventemitter3";

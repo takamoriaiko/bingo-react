@@ -1,15 +1,13 @@
-import React from "react";
-import { connect } from "react-redux";
-
-import { State } from "../reducer";
-import { Route } from "../types";
+import React, { useContext, useDebugValue } from "react";
 import Index from "./pages/index";
 import Admin from "./pages/admin";
 import Screen from "./pages/screen";
 import Play from "./pages/play";
+import { StateContext } from "../contexts";
 
-const Router = ({ route }: { route: Route | string }) => {
-  console.log("route", route);
+const Router = () => {
+  const { route } = useContext(StateContext);
+  useDebugValue(route);
   switch (route) {
     case "index":
       return <Index />;
@@ -23,5 +21,4 @@ const Router = ({ route }: { route: Route | string }) => {
       return <div>not found</div>;
   }
 };
-
-export default connect(({ route }: State) => ({ route }))(Router);
+export default Router;

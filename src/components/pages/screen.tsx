@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { Card } from "../../types";
 import CardNumber from "../atoms/card-number";
@@ -7,6 +7,7 @@ import CardComponent from "../molecules/card";
 import { upcardSelector, historySelector } from "../../selectors";
 import { State } from "../../reducer";
 import { connect } from "react-redux";
+import { StateContext } from "../../contexts";
 
 interface Props {
   history: Card[];
@@ -40,11 +41,12 @@ const NumberList = styled.div`
   margin: 0 ${gap}
   line-height: 4rem;
 `;
-
-const mapStateToProps = (state: State) => ({
-  card: upcardSelector(state),
-  history: historySelector(state)
-});
-
-const ScreenContainer = connect(mapStateToProps)(Screen);
+const ScreenContainer = () => {
+  const state = useContext(StateContext);
+  const props = {
+    card: upcardSelector(state),
+    history: historySelector(state)
+  };
+  return <Screen {...props} />;
+};
 export default ScreenContainer;

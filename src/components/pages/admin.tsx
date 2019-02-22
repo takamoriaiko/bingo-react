@@ -1,5 +1,4 @@
-import React from "react";
-import { connect } from "react-redux";
+import React, { useContext } from "react";
 
 import { shuffle, next, signInByGoogle, signOut } from "../../commands";
 import Link from "../atoms/link";
@@ -12,9 +11,9 @@ import {
   historySelector,
   userSelector
 } from "../../selectors";
-import { State } from "../../reducer";
 import CurrentUser from "../atoms/current-user";
 import styled from "styled-components";
+import { StateContext } from "../../contexts";
 
 interface Props {
   upcard: Card | null;
@@ -61,13 +60,16 @@ const Admin = ({ upcard, sortedHistory, history, user }: Props) => (
   </article>
 );
 
-const AdminContainer = connect((state: State) => ({
-  upcard: upcardSelector(state),
-  sortedHistory: sortedHistorySelector(state),
-  history: historySelector(state),
-  user: userSelector(state)
-}))(Admin);
-
+const AdminContainer = () => {
+  const state = useContext(StateContext);
+  const props = {
+    upcard: upcardSelector(state),
+    sortedHistory: sortedHistorySelector(state),
+    history: historySelector(state),
+    user: userSelector(state)
+  };
+  return <Admin {...props} />;
+};
 export default AdminContainer;
 
 const BigButton = styled.button`

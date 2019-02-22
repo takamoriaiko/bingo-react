@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { Card } from "../../types";
 import CardThumbnail from "../molecules/card-thumbnail";
 import CardList from "../molecules/card-list";
-import { connect } from "react-redux";
 import {
   upcardSelector,
   sortedHistorySelector,
   historySelector
 } from "../../selectors";
-import { State } from "../../reducer";
+import { StateContext } from "../../contexts";
 
 interface Props {
   upcard: Card | null;
@@ -41,10 +40,19 @@ const Play = ({ upcard, sortedHistory, history }: Props) => (
   </section>
 );
 
-const PlayContainer = connect((state: State) => ({
+/* const PlayContainer = connect((state: State) => ({
   upcard: upcardSelector(state),
   sortedHistory: sortedHistorySelector(state),
   history: historySelector(state)
 }))(Play);
-
+ */
+const PlayContainer = () => {
+  const state = useContext(StateContext);
+  const props = {
+    upcard: upcardSelector(state),
+    sortedHistory: sortedHistorySelector(state),
+    history: historySelector(state)
+  };
+  return <Play {...props} />;
+};
 export default PlayContainer;
