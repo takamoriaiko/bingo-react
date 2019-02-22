@@ -8,7 +8,7 @@ interface Props {
 const CardList = ({ cards }: Props) => (
   <ul>
     {cards.map(c => (
-      <CardListItem {...c} />
+      <CardListItem {...c} key={c.id} />
     ))}
   </ul>
 );

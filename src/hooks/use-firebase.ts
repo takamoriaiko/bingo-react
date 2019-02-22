@@ -15,7 +15,7 @@ const useDatabase = (dispatch: Dispatch<Action>) => {
     const ref = db.ref("cards");
     const f = ref.on("value", snapshot => {
       if (!snapshot) return;
-      setCards(snapshot.val());
+      setCards(snapshot.val() || []);
     });
     return () => ref.off("value", f as any);
   }, [dispatch]);
@@ -25,7 +25,7 @@ const useDatabase = (dispatch: Dispatch<Action>) => {
     const ref = db.ref("index");
     const f = ref.on("value", snapshot => {
       if (!snapshot) return;
-      setIndex(snapshot.val());
+      setIndex(snapshot.val() || -1);
     });
     return () => ref.off("value", f as any);
   }, [dispatch]);

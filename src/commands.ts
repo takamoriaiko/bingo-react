@@ -4,12 +4,11 @@ import firebaseApp from "./firebase-app";
 import firebase from "firebase/app";
 import "firebase/auth";
 import repository from "./repository/firebase-repository";
-import { Card } from "./types";
 
 // カードを配る
 export const shuffle = async () => {
-  const response = await fetch("./assets/aiko.json");
-  const cards: Card[] = await response.json();
+  const cards = (await import("../assets/aiko.json")).default;
+  // console.log(cards);
   repository.shuffle(cards);
 };
 
