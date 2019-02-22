@@ -14,7 +14,7 @@ import {
 } from "../../selectors";
 import { State } from "../../reducer";
 import CurrentUser from "../atoms/current-user";
-import styled from "../../../node_modules/styled-components";
+import styled from "styled-components";
 
 interface Props {
   upcard: Card | null;

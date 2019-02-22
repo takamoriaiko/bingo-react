@@ -5,6 +5,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: "module"
   },
+  parser: "babel-eslint",
   env: {
     node: true
   },
@@ -12,7 +13,6 @@ module.exports = {
   overrides: [
     {
       files: ["*.ts", "*.tsx"],
-      parser: "typescript-eslint-parser",
       plugins: ["typescript"],
       rules: {}
     }
