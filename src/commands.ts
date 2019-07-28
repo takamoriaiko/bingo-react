@@ -8,8 +8,12 @@ import repository from "./repository/firebase-repository";
 // カードを配る
 export const shuffle = async () => {
   const cards = (await import("../assets/aiko.json")).default;
-  // console.log(cards);
-  repository.shuffle(cards);
+  // 特訓前だけにする
+  const cards2 = cards
+    .filter(({ id }) => id % 2 === 1)
+    .map(c => ({ ...c, id: (c.id + 1) / 2 }));
+  console.log("cards", cards2);
+  repository.shuffle(cards2);
 };
 
 // デッキをめくる

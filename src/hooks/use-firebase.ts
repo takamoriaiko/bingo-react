@@ -25,7 +25,7 @@ const useDatabase = (dispatch: Dispatch<Action>) => {
     const ref = db.ref("index");
     const f = ref.on("value", snapshot => {
       if (!snapshot) return;
-      setIndex(snapshot.val() || -1);
+      setIndex(snapshot.val());
     });
     return () => ref.off("value", f as any);
   }, [dispatch]);
