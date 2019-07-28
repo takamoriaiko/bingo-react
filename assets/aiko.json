@@ -199,5 +199,45 @@
     "id": 40,
     "name": "[あたたかな居場所] 高森藍子+",
     "image_url": "https://hidamarirhodonite.kirara.ca/spread/300304.png"
+  },
+  {
+    "id": 41,
+    "name": " [ぽかぽかエコロジー] 高森藍子",
+    "image_url": "http://125.6.169.35/idolmaster/image_sp/card/quest/c827dabc28f2d3301d22ec465998046f.png"
+  },
+  {
+    "id": 42,
+    "name": " [ぽかぽかエコロジー] 高森藍子+",
+    "image_url": "http://125.6.169.35/idolmaster/image_sp/card/quest/716d5b068391df79655b56bfa34a3ed5.png"
+  },
+  {
+    "id": 43,
+    "name": "[かさなる思い出] 高森藍子",
+    "image_url": "http://125.6.169.35/idolmaster/image_sp/card/quest/8f6d0eb1d230ebf622f0e72ae0f9bb12.jpg"
+  },
+  {
+    "id": 44,
+    "name": "[かさなる思い出] 高森藍子+",
+    "image_url": "http://125.6.169.35/idolmaster/image_sp/card/quest/497db13df6dbfa90dd87102e6c2134bc.jpg"
+  },
+  {
+    "id": 45,
+    "name": "[笑顔のレセプション] 高森藍子",
+    "image_url": "https://hidamarirhodonite.kirara.ca/spread/300553.png"
+  },
+  {
+    "id": 46,
+    "name": "[笑顔のレセプション] 高森藍子+",
+    "image_url": "https://hidamarirhodonite.kirara.ca/spread/300554.png"
+  },
+  {
+    "id": 47,
+    "name": "[スパイスパラダイス] 高森藍子",
+    "image_url": "https://hidamarirhodonite.kirara.ca/spread/300607.png"
+  },
+  {
+    "id": 48,
+    "name": "[スパイスパラダイス] 高森藍子+",
+    "image_url": "https://hidamarirhodonite.kirara.ca/spread/300608.png"
   }
 ]
