@@ -9,7 +9,7 @@
     "start": "parcel index.html",
     "test": "jest",
     "tsc": "tsc",
-    "build": "parcel build src/main.tsx"
+    "build": "parcel build --public-url . index.html"
   },
   "jest": {
     "moduleFileExtensions": [

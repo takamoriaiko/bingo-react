@@ -4,9 +4,13 @@
 
 set -ex
 
+rm -rf dist
 npm run build
-cp -av index.html assets dist
+cp -av assets dist/assets
 cd dist
+git init
+git remote add origin git@github.com:takamoriaiko/bingo-react.git
+git checkout -b gh-pages
 git add -A
-git commit -m "$(date)"
-git push
+git -c user.name='furugomu' -c user.email='furugomu@gmail.com' commit -m "$(date)"
+git push -f origin gh-pages
