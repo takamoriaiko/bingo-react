@@ -422,4 +422,4 @@ var e=arguments[3];Object.defineProperty(exports,"__esModule",{value:!0}),export
 },{"react":"HdMw","./components/router":"omlM","./reducer":"a4Qo","./hooks/use-redux":"xl6v","./hooks/use-firebase":"kfRD","./hooks/use-history":"RRGg","./contexts":"eGhk"}],"AglL":[function(require,module,exports) {
 "use strict";var e=function(e){return e&&e.__esModule?e:{default:e}};Object.defineProperty(exports,"__esModule",{value:!0});const t=e(require("react")),r=require("react-dom"),u=e(require("./app"));document.addEventListener("DOMContentLoaded",()=>{r.render(t.default.createElement(u.default,null),document.querySelector("main"))});
 },{"react":"HdMw","react-dom":"X9zx","./app":"pcvB"}]},{},["AglL"], null)
-//# sourceMappingURL=/main.847ef36f.js.map
+//# sourceMappingURL=main.847ef36f.js.map
